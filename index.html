@@ -11,7 +11,20 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Signal Path">
+<script>
+/* Apply stored appearance before CSS renders to prevent a theme flash. */
+(function () {
+  const valid = ['analog', 'midnight', 'blueprint', 'minimal', 'synthwave'];
+  let selected = 'analog';
+  try {
+    const saved = localStorage.getItem('signalpath-theme-v1');
+    if (valid.includes(saved)) selected = saved;
+  } catch (_) { /* private browsing or blocked storage */ }
+  document.documentElement.dataset.theme = selected;
+})();
+</script>
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/themes.css">
 </head>
 <body>
 <header class="topbar">
@@ -23,6 +36,16 @@
     <a href="#/glossary" data-tab="glossary">Glossary</a>
     <a href="#/progress" data-tab="progress">Progress</a>
   </nav>
+  <div class="theme-switch">
+    <label for="theme-select">Studio theme</label>
+    <select id="theme-select" aria-label="Choose app theme">
+      <option value="analog">Analog 70s</option>
+      <option value="midnight">Midnight Console</option>
+      <option value="blueprint">Broadcast Blueprint</option>
+      <option value="minimal">Minimal Studio</option>
+      <option value="synthwave">Synthwave</option>
+    </select>
+  </div>
 </header>
 
 <main id="app" tabindex="-1"><noscript>This course needs JavaScript enabled.</noscript></main>
@@ -47,5 +70,28 @@
 <script src="js/content/08-practice.js"></script>
 <script src="js/widgets.js"></script>
 <script src="js/app.js"></script>
+<script>
+(function () {
+  const picker = document.getElementById('theme-select');
+  const root = document.documentElement;
+  const browserBar = document.querySelector('meta[name="theme-color"]');
+  const colors = {
+    analog: '#45261a',
+    midnight: '#182326',
+    blueprint: '#16374d',
+    minimal: '#f5f7f4',
+    synthwave: '#311a4c'
+  };
+  function apply(theme) {
+    if (!Object.hasOwn(colors, theme)) return;
+    root.dataset.theme = theme;
+    picker.value = theme;
+    browserBar.setAttribute('content', colors[theme]);
+    try { localStorage.setItem('signalpath-theme-v1', theme); } catch (_) { /* storage optional */ }
+  }
+  apply(root.dataset.theme || 'analog');
+  picker.addEventListener('change', function () { apply(picker.value); });
+})();
+</script>
 </body>
 </html>
