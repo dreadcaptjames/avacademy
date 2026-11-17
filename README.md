@@ -13,6 +13,8 @@ An interactive, self-paced course on commercial audiovisual (Pro AV) systems. It
 
 ## Deploy to GitHub Pages
 
+The repository includes a GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) that publishes the site on pushes to `main`. Enable **Settings → Pages → Build and deployment → GitHub Actions** once, then the workflow handles deployment.
+
 1. Create a new repository on GitHub, for example `av-academy`.
 2. Upload the contents of this folder to the repository root, keeping the folder structure: `index.html`, `manifest.webmanifest`, `css/`, `js/`, `icons/`, `.nojekyll`.
    - Web: **Add file → Upload files**, then drag everything in.
@@ -34,7 +36,7 @@ It also works on Netlify, Cloudflare Pages, or by opening `index.html` directly 
 
 ```
 index.html              App shell (nav, script includes)
-css/styles.css          All styling (mobile-first, dark theme)
+css/styles.css          All styling (responsive, retro 70s studio theme)
 icons/                  App icon: SVG source, favicons, home-screen and manifest PNGs
 manifest.webmanifest    Lets phones "Add to Home Screen" with the app icon
 js/content/*.js         Course content: modules, lessons, quizzes, glossary, scenarios
