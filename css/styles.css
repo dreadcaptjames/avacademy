@@ -616,6 +616,33 @@ svg.room .spk { fill: var(--accent); }
 .stats b { display: block; font-size: 1.5rem; font-family: var(--mono); color: var(--accent); }
 .stats span { font-size: 0.8rem; color: var(--muted); }
 
+/* High-contrast headings on dark page backgrounds */
+main > h1 {
+  color: #fff0d1;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .28);
+  border-bottom: 2px solid rgba(220, 157, 45, .42);
+  padding-bottom: .6rem;
+}
+main > .lead,
+main > p.lead {
+  color: #e8d0aa;
+}
+main > p:not(.lead) {
+  color: #e8d0aa;
+}
+/* Standalone quizzes sit on the dark stage; give them a readable console faceplate. */
+main > .quiz {
+  background: linear-gradient(180deg, var(--panel3), var(--panel));
+  border: 1px solid rgba(106, 63, 39, .35);
+  border-radius: var(--r);
+  box-shadow: var(--shadow), var(--inset);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+main > .quiz .qtext,
+main > .quiz .result p {
+  color: var(--text);
+}
+
 /* Misc refinements */
 ::selection { background: rgba(203, 99, 47, .22); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
