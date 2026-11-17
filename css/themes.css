@@ -280,3 +280,26 @@ main > table td {color:var(--stage-text);border-color:var(--nav-rule)}
 main > table a {color:var(--stage-title)}
 main > table tr:hover td {background:color-mix(in srgb,var(--nav-ink) 9%,transparent)}
 .gloss > p {color:var(--stage-text)}
+
+
+/* iOS Home Screen status-bar treatment.
+   WebKit can fall back to WHITE when both html/body background-color are
+   transparent (gradients alone don't provide an opaque sampled colour).
+   Use an actual solid colour for the page, sticky header and edge strip. */
+html,
+body { background-color:var(--nav-top); }
+.topbar { background-color:var(--nav-top); }
+/* A real fixed element lets recent Safari sample a theme colour above the
+   web viewport even when the status bar is outside the visible document. */
+.status-bar-surface {
+  position:fixed;
+  z-index:25;
+  inset:0 0 auto;
+  width:100%;
+  height:max(8px, env(safe-area-inset-top, 0px));
+  background-color:var(--nav-top);
+}
+@media (display-mode:browser) {
+  /* Avoid covering Safari's normal page content; the header remains sampled. */
+  .status-bar-surface { display:none; }
+}
