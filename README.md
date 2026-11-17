@@ -14,7 +14,7 @@ An interactive, self-paced course on commercial audiovisual (Pro AV) systems. It
 ## Deploy to GitHub Pages
 
 1. Create a new repository on GitHub, for example `av-academy`.
-2. Upload the contents of this folder to the repository root, keeping the folder structure: `index.html`, `css/`, `js/`, `.nojekyll`.
+2. Upload the contents of this folder to the repository root, keeping the folder structure: `index.html`, `manifest.webmanifest`, `css/`, `js/`, `icons/`, `.nojekyll`.
    - Web: **Add file → Upload files**, then drag everything in.
    - Command line:
      ```bash
@@ -35,6 +35,8 @@ It also works on Netlify, Cloudflare Pages, or by opening `index.html` directly 
 ```
 index.html              App shell (nav, script includes)
 css/styles.css          All styling (mobile-first, dark theme)
+icons/                  App icon: SVG source, favicons, home-screen and manifest PNGs
+manifest.webmanifest    Lets phones "Add to Home Screen" with the app icon
 js/content/*.js         Course content: modules, lessons, quizzes, glossary, scenarios
 js/widgets.js           Interactive calculators and simulators
 js/app.js               Router, progress, quiz engine, flashcards, scenarios
