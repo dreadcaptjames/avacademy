@@ -11,6 +11,10 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Signal Path">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- Intentionally omit apple-mobile-web-app-status-bar-style: on iOS 27,
+     black-translucent creates a blurred gradient over the app header.
+     An opaque theme-matched surface is provided in css/themes.css. -->
 <script>
 /* Apply stored appearance before CSS renders to prevent a theme flash. */
 (function () {
@@ -21,12 +25,18 @@
     if (valid.includes(saved)) selected = saved;
   } catch (_) { /* private browsing or blocked storage */ }
   document.documentElement.dataset.theme = selected;
+  const startupColors = {
+    analog:'#45261a', midnight:'#182326', blueprint:'#16374d',
+    minimal:'#f5f7f4', synthwave:'#311a4c'
+  };
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', startupColors[selected]);
 })();
 </script>
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/themes.css">
 </head>
 <body>
+<div class="status-bar-surface" aria-hidden="true"></div>
 <header class="topbar">
   <a href="#/" class="brand"><img class="logo" src="icons/icon.svg" alt="" width="28" height="28">Signal Path <small>Commercial AV Academy</small></a>
   <nav class="topnav" aria-label="Main">
