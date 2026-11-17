@@ -1,0 +1,269 @@
+/* Signal Path — selectable visual skins.
+   The course/quiz logic is independent of theme. All themes use the same semantic
+   surface, stage, navigation and control tokens for dependable contrast. */
+
+:root, :root[data-theme="analog"] {
+  --page-top:#342016; --page-bottom:#1c0e0a;
+  --nav-top:#48281a; --nav-bottom:#2f1810;
+  --nav-ink:#f8e9ca; --nav-muted:#e6cfa8; --nav-rule:#8e6344;
+  --stage-title:#fff0d1; --stage-text:#e8d0aa; --stage-rule:#d7ab70;
+  --button-top:#f7e8c8; --button-bottom:#edd4a3; --button-ink:#2d180f;
+  --primary-ink:#fff7ec; --field-face:#fffaf0; --soft-face:#fff8e8;
+  --surface-heading:#3d2115; --surface-copy:#4e3628; --pill-ink:#285d55;
+  --track:#d1b88e; --pattern:rgba(242,205,141,.042);
+}
+:root[data-theme="midnight"] {
+  --bg:#0d1517; --bg2:#182528; --panel:#1f2c2f; --panel2:#324143; --panel3:#2a393b;
+  --line:#71857e; --line2:#627873; --text:#f5ead6; --muted:#b5c4bf;
+  --accent:#f1ad51; --accent-2:#d98652; --accent2:#83d5bd;
+  --good:#86c58d; --warn:#f5bd5b; --bad:#f88e78;
+  --r:12px; --display:"Trebuchet MS", Arial, sans-serif;
+  --shadow:0 12px 34px rgba(0,0,0,.32); --shadow-soft:0 7px 18px rgba(0,0,0,.22);
+  --inset:inset 0 1px 0 rgba(255,255,255,.075), inset 0 -1px 2px rgba(0,0,0,.15);
+  --page-top:#172426; --page-bottom:#091013;
+  --nav-top:#182326; --nav-bottom:#10181b;
+  --nav-ink:#f8ead5; --nav-muted:#b7cec9; --nav-rule:#4c6665;
+  --stage-title:#fff0d2; --stage-text:#c5d5d0; --stage-rule:#9a8360;
+  --button-top:#465759; --button-bottom:#2b393b; --button-ink:#f5ead6;
+  --primary-ink:#21170c; --field-face:#101c20; --soft-face:#29383a;
+  --surface-heading:#fff1dc; --surface-copy:#e5e6db; --pill-ink:#83d5bd;
+  --track:#142024; --pattern:rgba(131,213,189,.045);
+}
+:root[data-theme="blueprint"] {
+  --bg:#081a2d; --bg2:#0c283f; --panel:#153149; --panel2:#24475d; --panel3:#1e4059;
+  --line:#5d91a5; --line2:#477b91; --text:#eff8f7; --muted:#b5d5dd;
+  --accent:#f5c875; --accent-2:#d4a25e; --accent2:#81d6ef;
+  --good:#93cfad; --warn:#f2be67; --bad:#fa9884;
+  --r:5px; --display:"Courier New", Consolas, monospace;
+  --shadow:0 12px 26px rgba(0,0,0,.23); --shadow-soft:0 6px 14px rgba(0,0,0,.18);
+  --inset:inset 0 1px 0 rgba(255,255,255,.08);
+  --page-top:#102d45; --page-bottom:#061424;
+  --nav-top:#16374d; --nav-bottom:#0c2035;
+  --nav-ink:#edfaff; --nav-muted:#bfdfea; --nav-rule:#507f98;
+  --stage-title:#effaff; --stage-text:#c5e2e9; --stage-rule:#81d6ef;
+  --button-top:#2b536a; --button-bottom:#19364e; --button-ink:#effaff;
+  --primary-ink:#10253b; --field-face:#0b263c; --soft-face:#1c3c53;
+  --surface-heading:#f3fbff; --surface-copy:#e1f2f6; --pill-ink:#a5e6f7;
+  --track:#09253b; --pattern:rgba(129,214,239,.075);
+}
+:root[data-theme="minimal"] {
+  --bg:#e9ebe7; --bg2:#e0e4df; --panel:#ffffff; --panel2:#f0f3f0; --panel3:#fafbf9;
+  --line:#c4d1ce; --line2:#a8c0b9; --text:#1b3031; --muted:#526768;
+  --accent:#12635c; --accent-2:#277a79; --accent2:#1c678e;
+  --good:#3e8566; --warn:#98621b; --bad:#aa443d;
+  --r:10px; --display:"Segoe UI", Arial, sans-serif;
+  --shadow:0 8px 30px rgba(34,63,62,.09); --shadow-soft:0 4px 14px rgba(34,63,62,.07);
+  --inset:inset 0 1px 0 rgba(255,255,255,.72);
+  --page-top:#f7f8f5; --page-bottom:#e3e6e0;
+  --nav-top:#ffffff; --nav-bottom:#f5f7f4;
+  --nav-ink:#1f3636; --nav-muted:#405d5b; --nav-rule:#cfdbd6;
+  --stage-title:#20383a; --stage-text:#415b5b; --stage-rule:#98bbb4;
+  --button-top:#f9fbfa; --button-bottom:#e6eeea; --button-ink:#20383a;
+  --primary-ink:#ffffff; --field-face:#ffffff; --soft-face:#f3f7f5;
+  --surface-heading:#20383a; --surface-copy:#31494a; --pill-ink:#12635c;
+  --track:#dbe6e0; --pattern:rgba(24,93,90,.018);
+}
+:root[data-theme="synthwave"] {
+  --bg:#160d2c; --bg2:#28173e; --panel:#251842; --panel2:#3d2961; --panel3:#302052;
+  --line:#906ba8; --line2:#79599b; --text:#fff0ff; --muted:#c9b6e1;
+  --accent:#ff63b0; --accent-2:#e687ed; --accent2:#6ce4f1;
+  --good:#80ecad; --warn:#ffd36b; --bad:#ff8e9a;
+  --r:16px; --display:"Arial Black", "Trebuchet MS", sans-serif;
+  --shadow:0 15px 36px rgba(9,0,27,.37); --shadow-soft:0 6px 20px rgba(9,0,27,.31);
+  --inset:inset 0 1px 0 rgba(255,255,255,.12), inset 0 -1px 0 rgba(0,0,0,.15);
+  --page-top:#33214e; --page-bottom:#0e0920;
+  --nav-top:#311a4c; --nav-bottom:#1b1135;
+  --nav-ink:#fff1ff; --nav-muted:#e3c5f5; --nav-rule:#70478f;
+  --stage-title:#fff0ff; --stage-text:#e5d1fb; --stage-rule:#ff63b0;
+  --button-top:#51316d; --button-bottom:#342150; --button-ink:#fff2ff;
+  --primary-ink:#240e2f; --field-face:#1c1235; --soft-face:#342251;
+  --surface-heading:#fff2fe; --surface-copy:#efdef9; --pill-ink:#8beef6;
+  --track:#1b1231; --pattern:rgba(255,99,176,.05);
+}
+
+/* Navigation + always-visible theme selector */
+body {
+  color:var(--stage-text);
+  background:
+    radial-gradient(ellipse at top left, color-mix(in srgb, var(--accent) 12%, transparent), transparent 38%),
+    radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent2) 10%, transparent), transparent 34%),
+    linear-gradient(170deg,var(--page-top),var(--bg) 43%,var(--page-bottom));
+}
+body::before {
+  background:repeating-linear-gradient(0deg,var(--pattern) 0 1px,transparent 1px 5px);
+  mix-blend-mode:normal;
+  opacity:1;
+}
+.topbar {
+  background:linear-gradient(180deg,var(--nav-top),var(--nav-bottom));
+  border-bottom-color:var(--nav-rule);
+}
+.brand {color:var(--nav-ink)}
+.brand small {color:var(--nav-muted)}
+.topnav a, .tabbar a {color:var(--nav-muted)}
+.topnav a.active,.topnav a:hover,.tabbar a.active {color:var(--nav-ink);border-color:var(--accent)}
+.tabbar {background:linear-gradient(180deg,var(--nav-top),var(--nav-bottom));border-color:var(--nav-rule)}
+.foot {color:var(--stage-text);border-color:var(--nav-rule)}
+main > h1 {color:var(--stage-title);border-color:var(--stage-rule);text-shadow:none}
+main > .lead,main > p.lead,main > p:not(.lead) {color:var(--stage-text)}
+h2.section {color:var(--stage-text)}
+.crumbs,.crumbs a,.pager a {color:var(--stage-text)}
+.toggle {color:var(--stage-text)}
+main > a:not(.btn), main > p a {color:var(--accent2)}
+.theme-switch {
+  display:flex;align-items:center;gap:.5rem;flex:none;
+  padding:.22rem .36rem .22rem .65rem;
+  border:1px solid var(--nav-rule);
+  border-radius:11px;
+  background:color-mix(in srgb,var(--nav-ink) 7%,transparent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+}
+.theme-switch label {
+  color:var(--nav-muted);font:700 .68rem/1 var(--mono);
+  letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+}
+.theme-switch select {
+  width:auto;max-width:210px;min-height:36px;
+  padding:.35rem 1.6rem .35rem .55rem;
+  font:700 .84rem/1.2 "Trebuchet MS",Arial,sans-serif;
+  color:var(--nav-ink);
+  background:var(--nav-bottom);
+  border:1px solid var(--nav-rule);
+  border-radius:7px;
+  box-shadow:none;cursor:pointer;
+}
+.theme-switch select:focus-visible {outline:2px solid var(--accent2);outline-offset:2px}
+.theme-switch option {color:var(--nav-ink);background:var(--nav-bottom)}
+@media (max-width:1080px) {
+  .brand small,.theme-switch label {display:none}
+  .topnav a {margin-left:.55rem;font-size:.8rem}
+}
+@media (max-width:760px) {
+  .topbar {gap:.45rem;padding-left:.75rem;padding-right:.75rem}
+  .brand {font-size:.88rem;gap:.4rem;white-space:nowrap}
+  .logo {width:27px;height:27px}
+  .theme-switch {padding:.2rem;border-radius:9px;max-width:51vw}
+  .theme-switch select {max-width:47vw;font-size:14px;min-height:36px;padding:.35rem .3rem}
+}
+
+/* Semantic surfaces: keep text readable on both dark and light faceplates. */
+.hero,.card,.mhead,.lesson,.widget,.gloss > div,.stats div,.lessons a,
+.quiz,.flash,.callout,.opt,.out,.chip,.tile,.explain,.review {
+  color:var(--text);
+}
+.hero,.card,.mhead,.lesson,.widget,.gloss > div,.stats div,.lessons a,
+.quiz,.flash,.opt {
+  border-color:color-mix(in srgb,var(--line2) 47%,transparent);
+}
+.hero {background:linear-gradient(140deg,var(--panel3),var(--panel));box-shadow:var(--shadow)}
+.hero h1,.card h3,.whead h4,.gloss dt {color:var(--surface-heading)}
+.hero .lead,.hero .overall,.card p,.card .meta,.lesson p,.lesson li,
+.gloss dd,.flash small {color:var(--surface-copy)}
+.card,.mhead,.lesson,.stats div,.lessons a,.gloss > div,.opt {
+  background:linear-gradient(180deg,var(--panel3),var(--panel));
+  box-shadow:var(--shadow-soft),var(--inset);
+}
+.card:hover,.lessons a:hover {border-color:var(--accent)}
+.card::before,.hero::after {background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent2))}
+.card .num,.num,.stats b {color:var(--accent)}
+.pill {
+  color:var(--pill-ink);
+  background:color-mix(in srgb,var(--accent2) 11%,var(--panel));
+  border-color:color-mix(in srgb,var(--accent2) 36%,transparent);
+}
+.progressbar,.meter {
+  background:var(--track);border-color:color-mix(in srgb,var(--line2) 26%,transparent);
+}
+.progressbar i {background:linear-gradient(90deg,var(--accent2),var(--accent-2),var(--accent))}
+.btn,.chip,.tile,.x {
+  color:var(--button-ink);
+  background:linear-gradient(180deg,var(--button-top),var(--button-bottom));
+  border-color:color-mix(in srgb,var(--line2) 55%,transparent);
+}
+.btn.primary {
+  color:var(--primary-ink);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 86%,white),var(--accent));
+  border-color:var(--accent);
+}
+.btn.danger {color:var(--bad);background:var(--button-bottom);border-color:var(--bad)}
+.chip.on,.chip:hover,.tile.on {color:var(--accent2);border-color:var(--accent2)}
+.chk {
+  color:var(--text);background:var(--panel2);
+  border-color:color-mix(in srgb,var(--line2) 40%,transparent);
+}
+.lessons a.done .chk {background:var(--good);color:var(--page-bottom)}
+.quizcard {background:linear-gradient(140deg,var(--panel3),var(--panel))}
+.callout,.explain,.review {background:var(--soft-face);border-color:color-mix(in srgb,var(--line2) 36%,transparent)}
+.callout {border-left:6px solid var(--accent)}
+.callout.tip {border-left-color:var(--accent2)}
+.callout.warn,.review {border-left-color:var(--bad)}
+.widget {
+  background:linear-gradient(160deg,var(--panel3),var(--panel));
+  border-color:color-mix(in srgb,var(--line2) 42%,transparent);
+}
+.whead p,.field,.trow,.qmeta,.mrow,.flash small {color:var(--muted)}
+.wtag {color:var(--primary-ink);background:var(--accent)}
+input,select {background:var(--field-face);color:var(--text);border-color:var(--line2)}
+.out {background:var(--soft-face);color:var(--text)}
+.out b,.mrow b {color:var(--text)}
+.mtrack {background:var(--track);border-color:var(--line2)}
+.mtrack .noise {background:repeating-linear-gradient(45deg,var(--panel2) 0 4px,var(--panel) 4px 8px)}
+.mtrack .sig {background:linear-gradient(90deg,var(--good),var(--warn))}
+.mtrack .sig.warn {background:linear-gradient(90deg,var(--good),var(--warn))}
+.mtrack .sig.bad {background:linear-gradient(90deg,var(--good),var(--warn),var(--bad))}
+.chain,.chain.bank {background:var(--soft-face);border-color:var(--line2)}
+.flash {background:linear-gradient(145deg,var(--panel3),var(--panel));color:var(--text)}
+.flash .back {color:var(--accent2)}
+.opt.correct,.badge.good {border-color:var(--good);background:color-mix(in srgb,var(--good) 16%,var(--panel));color:var(--good)}
+.opt.wrong,.badge.bad {border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,var(--panel));color:var(--bad)}
+.score.good {color:var(--good)}.score.warn {color:var(--warn)}.score.bad {color:var(--bad)}
+.table,table {color:var(--text)}
+th {background:var(--panel2);color:var(--text)}
+td {border-color:var(--line2)}
+tr:hover td {background:color-mix(in srgb,var(--accent2) 7%,transparent)}
+table a {color:var(--accent2)}
+.flow span {color:var(--text);background:color-mix(in srgb,var(--accent2) 12%,var(--panel));border-color:var(--accent2)}
+svg.room .wall {stroke:var(--line2)}
+svg.room .cov {fill:color-mix(in srgb,var(--accent2) 17%,transparent);stroke:var(--accent2)}
+svg.room .spk {fill:var(--accent)}
+.pagsvg text {fill:var(--text)}
+.pagsvg text.lab {fill:var(--accent)}
+.pagsvg line {stroke:var(--accent2)}
+
+/* Each look has its own shape language and environmental texture. */
+:root[data-theme="blueprint"] body::before {
+  background-image:
+    linear-gradient(var(--pattern) 1px,transparent 1px),
+    linear-gradient(90deg,var(--pattern) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+:root[data-theme="blueprint"] h1,
+:root[data-theme="blueprint"] h2,
+:root[data-theme="blueprint"] h3,
+:root[data-theme="blueprint"] h4 {letter-spacing:.045em}
+:root[data-theme="blueprint"] .card::before {height:2px}
+:root[data-theme="minimal"] h1,
+:root[data-theme="minimal"] h2,
+:root[data-theme="minimal"] h3,
+:root[data-theme="minimal"] h4,
+:root[data-theme="minimal"] h5 {text-transform:none;letter-spacing:-.025em}
+:root[data-theme="minimal"] body::before {opacity:.2}
+:root[data-theme="minimal"] .card::before {height:3px;opacity:.45}
+:root[data-theme="minimal"] .hero::after {height:4px}
+:root[data-theme="minimal"] .card,
+:root[data-theme="minimal"] .widget,
+:root[data-theme="minimal"] .lesson {box-shadow:var(--shadow-soft)}
+:root[data-theme="synthwave"] body::before {
+  background-image:repeating-linear-gradient(135deg,var(--pattern) 0 1px,transparent 1px 24px);
+}
+:root[data-theme="synthwave"] .card:hover,
+:root[data-theme="synthwave"] .flash.flipped {
+  box-shadow:0 0 22px rgba(255,99,176,.19),var(--shadow-soft);
+}
+:root[data-theme="synthwave"] .hero::after {box-shadow:0 0 14px rgba(255,99,176,.5)}
+:root[data-theme="midnight"] .card::before {
+  height:4px;background:linear-gradient(90deg,var(--good),var(--warn),var(--accent));
+}
+@media (prefers-reduced-motion:reduce) {
+  .btn,.card,.theme-switch select {transition:none}
+}
