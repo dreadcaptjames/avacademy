@@ -280,3 +280,9 @@
 @media (prefers-reduced-motion:reduce){
   .crash-meter i,.crash-course-card,.crash-start-btn {transition:none}
 }
+
+/* Six desktop nav links would crowd the selector on mid-size tablets. */
+@media (min-width:761px) and (max-width:1180px) {
+  .topnav {display:none}
+  .tabbar {display:flex}
+}
