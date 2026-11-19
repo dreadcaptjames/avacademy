@@ -4,6 +4,7 @@
   const app = $('#app');
   const mods = AV.modules;
   const modById = (id) => mods.find((m) => m.id === id);
+  const crashUI = AV.crashUI(app);
 
   /* ---------- Progress storage (per-browser) ---------- */
   const KEY = 'signalpath-progress-v1';
@@ -47,21 +48,7 @@
       <div class="progressbar"><i style="width:${p.pct}%"></i></div></a>`;
   }
 
-  function home() {
-    const t = totals();
-    app.innerHTML = `
-    <section class="hero">
-      <p class="eyebrow">Commercial AV, from signal to service</p>
-      <h1>Learn how professional audiovisual systems are designed, built and supported.</h1>
-      <p class="lead">${mods.length} modules · ${t.lessons} lessons · ${Object.keys(AV.widgets).length} interactive tools · ${t.questions} quiz questions · ${AV.scenarios.length} troubleshooting scenarios</p>
-      <div class="row"><a class="btn primary" href="${nextLesson()}">${t.done ? 'Continue learning →' : 'Start module 1 →'}</a><a class="btn" href="#/tools">Open the toolbox</a></div>
-      <div class="overall"><span>${t.pct}% complete</span><div class="progressbar"><i style="width:${t.pct}%"></i></div></div>
-    </section>
-    <h2 class="section">Learning path</h2>
-    <div class="grid">${mods.map(modCard).join('')}</div>
-    <h2 class="section">Practice</h2>
-    <div class="grid">${practiceCards()}</div>`;
-  }
+  function home() { crashUI.home(); }
 
   function practiceCards() {
     const sc = Object.keys(P.scenarios).length;
@@ -73,7 +60,7 @@
   }
 
   function learn() {
-    app.innerHTML = `<h1>Learning path</h1><p class="lead">Work top to bottom, or jump to any module.</p><div class="grid">${mods.map(modCard).join('')}</div>`;
+    app.innerHTML = `<h1>Full AV Academy</h1><p class="lead">Want the complete picture? Explore all 11 modules and dig deeper into topics from the crash course.</p><div class="row"><a class="btn primary" href="#/crash">← Back to the crash course</a><a class="btn" href="#/glossary">AV glossary</a></div><div class="grid">${mods.map(modCard).join('')}</div>`;
   }
 
   function moduleView(id) {
@@ -235,7 +222,7 @@
 
   function progress() {
     const t = totals();
-    app.innerHTML = `<h1>Your progress</h1><p class="lead">Saved in this browser only.</p>
+    app.innerHTML = `<h1>Your progress</h1><p class="lead">Saved in this browser only.</p>${crashUI.summary()}
       <div class="stats"><div><b>${t.done}/${t.lessons}</b><span>lessons</span></div><div><b>${Object.keys(P.quizzes).length}/${mods.length}</b><span>quizzes taken</span></div><div><b>${P.exam != null ? P.exam + '%' : '—'}</b><span>best exam</span></div><div><b>${Object.keys(P.scenarios).length}/${AV.scenarios.length}</b><span>scenarios</span></div></div>
       <table><tr><th>Module</th><th>Lessons</th><th>Quiz best</th></tr>${mods.map((m) => { const p = modProg(m); return `<tr><td><a href="#/m/${m.id}">${m.icon} ${m.title}</a></td><td>${p.done}/${p.total}</td><td>${P.quizzes[m.id] != null ? P.quizzes[m.id] + '%' : '—'}</td></tr>`; }).join('')}</table>
       <div class="row"><button class="btn danger" data-reset>Reset all progress</button></div>`;
@@ -247,12 +234,13 @@
 
   /* ---------- Router ---------- */
   const routes = [
-    [/^#?\/?$/, home], [/^#\/learn$/, learn], [/^#\/m\/([\w-]+)$/, moduleView], [/^#\/m\/([\w-]+)\/quiz$/, quizView],
+    [/^#?\/?$/, home], [/^#\/crash$/, () => crashUI.home()], [/^#\/crash\/(\d+)$/, (n) => crashUI.lesson(+n)], [/^#\/learn$/, learn], [/^#\/m\/([\w-]+)$/, moduleView], [/^#\/m\/([\w-]+)\/quiz$/, quizView],
     [/^#\/m\/([\w-]+)\/(\d+)$/, (id, n) => lessonView(id, +n)], [/^#\/tools$/, tools], [/^#\/tools\/([\w-]+)$/, toolView],
     [/^#\/practice$/, practice], [/^#\/flashcards$/, flashcards], [/^#\/scenarios$/, scenarios], [/^#\/scenario\/([\w-]+)$/, scenarioView],
     [/^#\/exam$/, exam], [/^#\/glossary$/, glossary], [/^#\/progress$/, progress]
   ];
   function tabFor(h) {
+    if (!h || h === '#/' || /^#\/crash/.test(h)) return 'crash';
     if (/^#\/tools/.test(h)) return 'tools';
     if (/^#\/(practice|flashcards|scenario|exam)/.test(h)) return 'practice';
     if (/^#\/glossary/.test(h)) return 'glossary';
