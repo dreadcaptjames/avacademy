@@ -149,6 +149,7 @@
     return {
       home: () => home(app),
       lesson: n => lesson(app, Number(n)),
+      clear: () => { completed = {}; save(); },
       summary
     };
   };
