@@ -227,7 +227,7 @@
       <table><tr><th>Module</th><th>Lessons</th><th>Quiz best</th></tr>${mods.map((m) => { const p = modProg(m); return `<tr><td><a href="#/m/${m.id}">${m.icon} ${m.title}</a></td><td>${p.done}/${p.total}</td><td>${P.quizzes[m.id] != null ? P.quizzes[m.id] + '%' : '—'}</td></tr>`; }).join('')}</table>
       <div class="row"><button class="btn danger" data-reset>Reset all progress</button></div>`;
     const b = $('[data-reset]'); let armed = false;
-    b.onclick = () => { if (!armed) { armed = true; b.textContent = 'Tap again to confirm reset'; return; } P = { lessons: {}, quizzes: {}, exam: null, scenarios: {}, cards: {}, chains: {} }; save(); progress(); };
+    b.onclick = () => { if (!armed) { armed = true; b.textContent = 'Tap again to confirm reset'; return; } P = { lessons: {}, quizzes: {}, exam: null, scenarios: {}, cards: {}, chains: {} }; save(); crashUI.clear(); progress(); };
   }
 
   function notFound() { app.innerHTML = `<h1>Not found</h1><p><a href="#/">Go home</a></p>`; }
